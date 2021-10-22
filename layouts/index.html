@@ -251,6 +251,56 @@
 {{ end }}
 <!-- End About Me -->
 
+<!-- Start Hackathons -->
+{{ with .GetPage "hackathons" }}
+<style>{{.Params.custom_css | safeCSS}}</style>
+<section class="hackathons {{.Params.custom_class}}" {{.Params.custom_attributes | safeHTMLAttr}} id="about">
+  <div class="container">
+    <div class="row experience-skill">
+      {{ with .Params.experience }}
+      {{ if .enable }}
+      <div class="col-lg-6 col-sm-6 col-11 experience wow fadeInUp" data-wow-duration="1.5s">
+        <h3>{{ .title }}</h3>
+        <ul class="experience-chart">
+          {{ range .experience_list }}
+          <li>
+            <div class="single-experience">
+              <h4>{{ .name | markdownify }}</h4>
+              {{ with .company }} <span>{{ . | markdownify }}</span> {{ end }}
+              {{ with .duration }} <span>{{ . | markdownify }}</span> {{ end }}
+              {{ with .content }} <p>{{ . | markdownify}}</p> {{ end }}
+            </div>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+      {{ end }}
+
+      {{ with .Params.skill }}
+      {{ if .enable }}
+      <div class="col-lg-6 col-sm-6 col-11 skill wow fadeInUp" data-wow-duration="1.5s">
+        <h3>{{ .title }}</h3>
+        <div class="skill-progress-bar">
+          {{ range .skill_list }}
+          <div class="clearfix">
+            <span class="skillbar-title">{{ .name }}</span>
+            <span class="skill-bar-percent">{{ .percentage }}</span>
+            <div class="skillbar" data-percent="{{ .percentage }}">
+              <div class="skillbar-bar"></div>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+<!-- End Hackathons -->
+
 <!-- Start Services -->
 {{ with .GetPage "service" }}
 <style>{{.Params.custom_css | safeCSS}}</style>

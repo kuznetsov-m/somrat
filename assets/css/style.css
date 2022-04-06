@@ -1071,6 +1071,39 @@ ul.experience-chart h4 {
   -webkit-border-radius: 22px;
 }
 
+/* tags */
+
+.tags {
+  list-style: none;
+  margin: 0;
+  overflow: hidden; 
+  padding: 0;
+}
+
+.tags li {
+  font-size: 15px;
+  float: left; 
+}
+
+.tag {
+  background: #eee;
+  border-radius: 25px;
+  color: #999;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 15px 0 15px;
+  position: relative;
+  margin: 0 10px 10px 0;
+  text-decoration: none;
+  -webkit-transition: color 0.5s;
+}
+
+.tag:hover {
+  background-color: #4d4d4d;
+  color: white;
+}
+
 /*--------------------------------
    End About Me
 ----------------------------------*/
